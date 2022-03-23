@@ -1,0 +1,154 @@
+/* font-family: 'Pacifico', cursive;
+font-family: 'Shadows Into Light', cursive; */
+
+
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:'Shadows Into Light', cursive;
+    font-size: 1rem;
+}
+
+body{
+background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);   
+
+}
+h1{
+    font-family: 'Pacifico', cursive;
+    padding: 2.75em 1em;
+}
+main{
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+
+}
+a{
+    display: inline-block;
+    color: unset;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+    max-width: 80px;
+}
+
+.setup-game{
+     width: 80%;
+     max-width: 750px;
+     margin: 0 auto;
+     padding: 2em 1em;
+     border: 2px solid;
+     border-radius: 10px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+     -ms-transform: translate(-50%, -50%);
+     -o-transform: translate(-50%, -50%);
+   
+}
+
+.grid-btn,
+.start-btn{
+    padding: .5em 2.5em;
+    margin: 1em;
+    border: none;
+    border-radius: 100px;
+    background-color: #8b2ee2;
+    color: #ffff;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+   
+}
+
+/* Game styling */
+
+.game-items{
+    max-width: 550px;
+    margin: 0 auto;
+
+}
+
+.moveTime-items{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 2em 1em;
+    
+}
+.four-grid{
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4,1fr);
+
+}
+.two-grid{
+    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+.card-items{
+    display: grid;
+    gap: 2% 1%;
+    padding: 0 .5em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+
+}
+
+.flip-card{
+     background-color: #8b2ee2;
+     border-radius: 10px;
+     box-shadow: 3px 3px 5px 0px rgba(139,46,226,0.75);
+     -webkit-box-shadow: 3px 3px 5px 0px rgba(139,46,226,0.75);
+     -moz-box-shadow: 3px 3px 5px 0px rgba(139,46,226,0.75);
+}
+ 
+.back{
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #E0C3FC;
+    border-radius: 10px;
+    padding-top: 10%;
+  
+}
+
+
+.flip-card:hover .back{
+  visibility: visible;
+  opacity: 1;
+  transition: all .5s;
+
+}
+
+
+
+
+.matched-card{
+    opacity: .5;
+}
+
+
+
+.ft-text{
+    text-align: center;
+    padding: 1em;
+}
+
+
+
+
