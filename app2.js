@@ -53,28 +53,42 @@ const fourGrid = [
     img: './images/pasteque.png',
   },
 ];
-//  const indexNums = [];
-function randIndexese(gridArr) {
-  const randNum = Math.floor(Math.random() * gridArr.length);
-
-  return randNum;
-}
-
 const gridSize = parseInt(localStorage.getItem('gridSize'));
 const cardsContainer = document.querySelector('.card-items');
 
+const indexNums = [];
+function getRandNumber(gridArr) {
+     let lessThanTwo = false;
+     while (!lessThanTwo) {
+       randNum = Math.floor(Math.random() * gridArr.length);
+       indexNums.push(randNum);
+       let count = 0;
+       for (let i = 0; i < indexNums.length; i++) {
+         if (indexNums[i] === randNum) {
+           count += 1;
+         }
+       }
+       if (count <= 2) {
+         lessThanTwo = true;
+       }
+     }
+     if (lessThanTwo) {
+      return randNum;
+     }
+  }
 
+ 
 function DisplayGridItems(gridNum, gridArr) {
   let displayCard = [];
   for (let i = 0; i < gridNum; i++) {
-    const randIndexe = randIndexese(gridArr);
+    const randIndexe = getRandNumber(gridArr);
 
     const gridCard = `<div class="flip-card">
     <div class ="back"><img src="${gridArr[randIndexe].img}" alt="${gridArr[randIndexe].alt}"></div>
     </div>`;
     displayCard.push(gridCard);
   }
-//   console.log(displayCard);
+  //   console.log(displayCard);
   displayCard = displayCard.join('');
   cardsContainer.innerHTML = displayCard;
 }
