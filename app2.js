@@ -122,45 +122,53 @@ function playGame() {
   }
   let moves = 0;
   const choosenCards = [];
+  const unmatchedCards = [];
   const flipCards = document.querySelectorAll('.flip-card');
+  const moveCards = document.querySelector('.moves');
+  // console.log(moveCards);
   // console.log(backCards);
   flipCards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      moves += 1;
-      console.log(moves);
+      // moves += 1;
+      // add moves each time you clicked on card
+      console.log(card);
       const backCard = card.querySelector('.hide-card');
       console.log(backCard);
       if (backCard.classList.contains('hide-card')) {
-        backCard.classList.remove('hide-card');
-        backCard.classList.add('show-card');
+        // backCard.classList.remove('hide-card');
+        backCard.classList.toggle('show-card');
         console.log('hhh');
+        unmatchedCards.push(backCard);
       }
+      console.log(unmatchedCards);
       const selectedCard = e.currentTarget.dataset.title;
       choosenCards.push(selectedCard);
       if (choosenCards.length === 2) {
-        flipCards.forEach((flipcard) => {
-          if (checkCards(choosenCards)) {
+        moves +=1;
+        moveCards.textContent = `moves: ${moves}`
+        if (checkCards(choosenCards)) {
+          flipCards.forEach((flipCard) => {
+            console.log(flipCard);
             if (
-              flipcard.dataset.title === choosenCards[0] ||
-              flipcard.dataset.title === choosenCards[choosenCards.length - 1]
+              flipCard.dataset.title === choosenCards[0] ||
+              flipCard.dataset.title === choosenCards[choosenCards.length - 1]
             ) {
-              console.log('opacity');
+              flipCard.classList.add('matched-card');
             }
-          } else {
-            console.log('non opacity');
-          }
-        });
+          });
+        } else {
+          // console.log('non opacity');
+          unmatchedCards.forEach((unmatchedCard) => {
+            unmatchedCard.classList.add('unmatched-card');
+            setTimeout(() => {
+              // unmatchedCard.classList.add('hide-card');
+              unmatchedCard.classList.remove('show-card');
+            }, 1100);
+          });
+        }
         choosenCards.length = 0;
+        unmatchedCards.length = 0;
       }
-
-      // if (choosenCards.length === 2) {
-      //   if (choosenCards[0] === choosenCards[choosenCards.length - 1]) {
-      //     console.log('rahom kif kif');
-      //   } else {
-      //     console.log('marahomch kif kif');
-      //   }
-      //   choosenCards.length = 0;
-      // }
     });
   });
 }

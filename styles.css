@@ -124,21 +124,30 @@ img{
     background-color: #E0C3FC;
     border-radius: 10px;
     padding-top: 10%;
-  
+    transition: opacity 5s;
+    -webkit-transition: opacity 5s;
+    -moz-transition: opacity 5s;
+    -ms-transition: opacity 5s;
+    -o-transition: opacity 5s;
 }
 
-/* 
-.flip-card:hover .hide-card{
+
+ /* .flip-card:hover .hide-card{ 
   visibility: visible;
   opacity: 1;
-  transition: all .5s; */
+  transition: all .5s;
+  
 
-}
+}  */
 
 .show-card{
     visibility: visible;
     opacity: 1;
     transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
 }
 
 
@@ -148,12 +157,31 @@ img{
     opacity: .5;
 }
 
+.unmatched-card{
+    animation-name: pulse;
+   animation-duration: .75s;
+}
 
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
 
 .ft-text{
     text-align: center;
     padding: 1em;
 }
+
+
 
 
 
