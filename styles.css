@@ -73,6 +73,18 @@ img{
    
 }
 
+
+
+ button :hover{
+      opacity: .7;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+   
+}
+
 /* Game styling */
 
 .game-items{
@@ -80,6 +92,7 @@ img{
     margin: 0 auto;
 
 }
+ 
 
 .moveTime-items{
     display: flex;
@@ -124,11 +137,11 @@ img{
     background-color: #E0C3FC;
     border-radius: 10px;
     padding-top: 10%;
-    transition: opacity 5s;
-    -webkit-transition: opacity 5s;
-    -moz-transition: opacity 5s;
-    -ms-transition: opacity 5s;
-    -o-transition: opacity 5s;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
 }
 
 
@@ -144,7 +157,7 @@ img{
     visibility: visible;
     opacity: 1;
     transition: all .5s;
-    -webkit-transition: all .5s;
+    -webkit-transition: all .5s ease;
     -moz-transition: all .5s;
     -ms-transition: all .5s;
     -o-transition: all .5s;
@@ -155,6 +168,8 @@ img{
 
 .matched-card{
     opacity: .5;
+    pointer-events: none;
+
 }
 
 .unmatched-card{
@@ -174,6 +189,39 @@ img{
 	to {
 		transform: scale3d(1, 1, 1);
 	}
+}
+
+.modal-container{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+     transition: all .5s;
+   
+}
+.modal{
+    background-color: #fff;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    border: #8b2ee2 solid;
+    width: 550px;
+    max-width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.open-modal{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .ft-text{
